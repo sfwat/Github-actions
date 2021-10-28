@@ -2,11 +2,11 @@ version: 2.1
 
 workflows:
   jobs:
-    - testing-django
+    - testing
 
 
 jobs:
-  testing-django:
+  testing:
     docker:
       - image: cimg/python:3.10.0
     steps:
