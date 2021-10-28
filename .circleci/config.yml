@@ -16,6 +16,6 @@ jobs:
           command: pip3 install --user django
       - run:
           name: run test
-          command: python manage.py test
+          command: python3 manage.py test
 
 
