@@ -1,19 +1,21 @@
 version: 2.1
 
 workflows:
-  jobs:
-    - testing
+  test_push:
+    jobs:
+      - test_django_app
 
 jobs:
-  testing:
+  test_django_app:
     docker:
-        image: "cimg/python:3.10.0"
+      - image: cimg/python:3.10.0
     steps:
       - checkout
-        run:
-          command: "pip3 install --user django"
-          name: install-requirments
-        run:
-          command: "python manage.py test"
-          name: run-tests
+      - run:
+          name: install dependecies
+          command: pip3 install --user django
+      - run:
+          name: run test
+          command: python manage.py test
+
 
