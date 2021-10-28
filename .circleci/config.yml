@@ -4,16 +4,16 @@ workflows:
   jobs:
     - testing
 
-
 jobs:
   testing:
     docker:
-      - image: cimg/python:3.10.0
+        image: "cimg/python:3.10.0"
     steps:
       - checkout
-      - run:
+        run:
+          command: "pip3 install --user django"
           name: install-requirments
-          command: pip3 install --user django
-      - run:
+        run:
+          command: "python manage.py test"
           name: run-tests
-          command: python manage.py test
+
